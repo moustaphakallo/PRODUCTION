@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONSTRUC PRO - BTP et Transport Logistique</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-bg: #1a1a1a;
+            --dark-card: #2d2d2d;
+            --accent-orange: #ff6b35;
+            --accent-dark: #004e89;
+            --text-light: #f0f0f0;
+            --text-dark: #333;
+            --border-color: #444;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== HEADER & NAV ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.98);
+            border-bottom: 3px solid var(--accent-orange);
+            padding: 1.2rem 5%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-orange);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+            border-bottom: 2px solid var(--accent-orange);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            margin-top: 70px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--accent-dark) 100%);
+            padding: 2rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent-orange);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(240, 240, 240, 0.85);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #ff5522;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-orange);
+            border: 2px solid var(--accent-orange);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-orange);
+            color: white;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .section-title span {
+            color: var(--accent-orange);
+        }
+
+        .section-subtitle {
+            color: rgba(240, 240, 240, 0.7);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            background: var(--dark-bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-orange);
+        }
+
+        .about-text p {
+            color: rgba(240, 240, 240, 0.8);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .stats-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: var(--dark-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-orange);
+        }
+
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-orange);
+            font-weight: 800;
+        }
+
+        .stat-label {
+            color: rgba(240, 240, 240, 0.6);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== SERVICES ===== */
+        #services {
+            background: rgba(45, 45, 45, 0.5);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--dark-card);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--accent-orange);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 107, 53, 0.05);
+            border-top-color: var(--accent-dark);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+    
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: rgba(240, 240, 240, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== GALLERY ===== */
+        #gallery {
+            background: var(--dark-bg);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-dark));
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+        }
+
+        .gallery-icon {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .gallery-icon img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {
+            background: rgba(45, 45, 45, 0.5);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: var(--accent-orange);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.9rem;
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            background: var(--dark-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-orange);
+            transition: 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-item i {
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item h4 {
+            color: var(--accent-orange);
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-item p {
+            color: rgba(240, 240, 240, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(26, 26, 26, 0.95);
+            border-top: 2px solid var(--accent-orange);
+            padding: 3rem 5%;
+            text-align: center;
+            color: rgba(240, 240, 240, 0.7);
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--accent-dark);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 3%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                margin-top: 60px;
+                min-height: 80vh;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+
+            .stats-box {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            section {
+                padding: 3rem 3%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+        .service-icon img{
+            height: 100%;
+            width: 100%;
+        }
+/* NAVBAR */
+nav{
+    width: 100%;
+    height: 90px;
+    padding: 0 7%;
+    background: #0f172a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* LOGO */
+.logo{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+/* NAV LINKS */
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+/* LINKS */
+nav a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+/* HOVER EFFECT */
+nav a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: #f59e0b;
+    transition: 0.3s ease;
+}
+
+nav a:hover{
+    color: #f59e0b;
+}
+
+nav a:hover::after{
+    width: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px){
+
+    nav{
+        flex-direction: column;
+        height: auto;
+        padding: 1rem 5%;
+        gap: 1rem;
+    }
+
+    .nav-links{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .logo{
+        font-size: 1.5rem;
+    }
+
+}
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAV -->
+    <header>
+        <nav>
+             <a href="index.html">index</a>
+            <a href="Projets.html">Projets</a>
+            <div class="logo">CONSTRUC PRO</div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Solutions <span>Complètes</span> en BTP & Logistique</h1>
+            <p>Nous réalisons vos projets de construction et optimisons vos transports avec expertise et fiabilité</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Demander un devis</button>
+                <button class="btn btn-secondary">En savoir plus</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2 class="section-title">À <span>propos</span> de nous</h2>
+        <p class="section-subtitle">Depuis 30 ans, nous accompagnons les entreprises dans leurs projets</p>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Leader en Construction et Transport</h3>
+                <p>CONSTRUC PRO est une entreprise spécialisée en bâtiment, travaux publics et transport logistique. Nos équipes qualifiées garantissent la qualité et le respect des délais sur tous nos chantiers.</p>
+                <p>Nous disposons d'une flotte moderne de véhicules et de matériels spécialisés pour répondre à vos besoins les plus exigeants.</p>
+
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Années d'expérience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Projets réalisés</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Collaborateurs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Satisfaction clients</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-building"></i>
+     <img src="https://unc-edu.org/wp-content/uploads/2024/08/Logistique-et-Transport.jpg" alt="" style="height: 100%; width: 100%; object-fit: cover; opacity: 0.9; border-radius: 10px;">
+            </div>
+        </div>
+    </section>
+
+  <!-- SERVICES SECTION -->
+<section id="services">
+    <h2 class="section-title">Nos <span>Services</span></h2>
+    <p class="section-subtitle">Une gamme complète adaptée à vos besoins</p>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <div class="service-icon">
+                <img src="https://www.institutnemo.com/wp-content/uploads/2021/10/histoire-logistique.jpg" 
+                     alt="Construction Générale">
+            </div>
+            <h3>Construction Générale</h3>
+            <p>
+                Réalisation de bâtiments résidentiels et commerciaux avec les normes 
+                les plus élevées de sécurité et de qualité.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <img src="https://www.goconstruct.org/media/k0tierrb/civil-engineer-ss2470319003.jpg?width=510&height=332&format=WebP&quality=75&v=1db7ef40c417ce0" 
+                     alt="Génie Civil">
+            </div>
+            <h3>Génie Civil</h3>
+            <p>
+                Travaux d'infrastructure : routes, ponts, tunnels et tous travaux 
+                de génie civil complexes.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTew9Th_zMAaUwjL2jHpshmGxIOFfCrs2QHLg&s" 
+                     alt="Terrassement">
+            </div>
+            <h3>Terrassement</h3>
+            <p>
+                Excavation, nivellement et préparation de terrain avec équipement 
+                moderne et précision.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <img src="https://academy.iccwbo.org/wp-content/uploads/2024/10/kh-66.jpg" 
+                     alt="Transport Logistique">
+            </div>
+            <h3>Transport Logistique</h3>
+            <p>
+                Transport de marchandises et matériaux avec flotte spécialisée 
+                et suivi en temps réel.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1200&auto=format&fit=crop" 
+                     alt="Location de Matériel">
+            </div>
+            <h3>Location de Matériel</h3>
+            <p>
+                Location de matériel BTP : engins, grues, nacelles et équipements spécialisés.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1Ssv1ZBgQuRwCekcXLkVJqFMByGgja67YXw&s" 
+                     alt="Conseil & Expertise">
+            </div>
+            <h3>Conseil & Expertise</h3>
+            <p>
+                Accompagnement et conseil pour optimiser vos projets 
+                de construction et logistique.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery">
+        <h2 class="section-title">Nos <span>Projets</span></h2>
+        <p class="section-subtitle">Galerie de nos réalisations</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-icon"><i class="fas fa-building"></i>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTWYtTxmMFjweYxy07NrdKcxKuSIOo97vHng&s" alt="" style="height: 100%; ">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon"><i class="fas fa-road"></i>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNCUKkwDp0-sQbEFaO5u2mGtgxj9naE9roWA&s" alt="">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon"><i class="fas fa-bridge"></i>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcfoJgI_DPzOLb-BPhYyH71ZOC_rRkGUCtw&s" alt="">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon"><i class="fas fa-hard-hat"></i>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-A04g7NwK2yq-JC2PWOmweN7SLTYi5I_Giw&s" alt="">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon"><i class="fas fa-truck"></i>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShujqua4j6J9JHmozlNWLqg6HzA43AiKK8QA&s" alt="">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon"><i class="fas fa-tools"></i>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAdQ_jhe_B1wHz1Cc9B1EGfvc-Ytk1PTwTJg&s" alt="">
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2 class="section-title">Nous <span>Contacter</span></h2>
+        <p class="section-subtitle">Laissez-nous vos coordonnées pour un devis gratuit</p>
+
+        <div class="contact-grid">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" placeholder="moustapha Kallo" required>
+                </div>
+                <div class="form-group">
+                    <label for="email ">Email</label>
+                    <input type="email" id="email" name="email" placeholder="moustaphakallo547@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+224 66 16 15 859" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Type de projet</label>
+                    <input type="text" id="subject" name="subject" placeholder="Ex: Construction, Transport...">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Décrivez votre projet..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Adresse</h4>
+                    <p>456 Avenue de la Construction<br>75012 guinnee conakry, </p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Téléphone</h4>
+                    <p>+224 66 16 15 859<br>+224 626 36 66 86</p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <p>contact@construcpro.fr<br>devis@construcpro.fr</p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h4>Horaires</h4>
+                    <p>Lun-Ven: 7h-18h<br>Sam: 8h-12h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 CONSTRUC PRO. Tous droits réservés.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="font-size: 0.85rem;">Excellence en Construction et Logistique | Épreuve de recrutement 2025</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<img src="image.png">
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS Global Trade - Import Export Solutions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a1628;
+            --primary-blue: #1e3a5f;
+            --accent-gold: #d4af37;
+            --accent-teal: #00a8b5;
+            --text-light: #f5f5f5;
+            --text-dark: #1a1a1a;
+            --border-light: rgba(255,255,255,0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== HEADER & NAV ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-teal) 0%, transparent 70%);
+            opacity: 0.1;
+            top: -200px;
+            right: -200px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+            opacity: 0.08;
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(245, 245, 245, 0.8);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--accent-gold);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+            color: var(--primary-dark);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .section-subtitle {
+            color: rgba(245, 245, 245, 0.7);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        #about {
+            background: linear-gradient(180deg, var(--primary-dark) 0%, rgba(30, 58, 95, 0.5) 100%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .about-text p {
+            color: rgba(245, 245, 245, 0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            transition: var(--transition);
+        }
+
+        .stat:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            font-weight: 900;
+        }
+
+        .stat-label {
+            color: rgba(245, 245, 245, 0.6);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-gold));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        #services {
+            background: var(--primary-dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.5), rgba(0, 168, 181, 0.1));
+            border: 1px solid var(--border-light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.8), rgba(0, 168, 181, 0.2));
+            border-color: var(--accent-gold);
+            border-top-color: var(--accent-gold);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: rgba(245, 245, 245, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        #contact {
+            background: linear-gradient(180deg, rgba(30, 58, 95, 0.3) 0%, var(--primary-dark) 100%);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-light);
+            color: var(--text-light);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .form-group input:hover,
+        .form-group textarea:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-teal);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-gold);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-item i {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+
+        .contact-item h4 {
+            color: var(--accent-gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item p {
+            color: rgba(245, 245, 245, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        #gallery {
+            background: var(--primary-dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .gallery-item-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 2.5rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(10, 22, 40, 0.8);
+            border-top: 1px solid var(--border-light);
+            padding: 3rem 5%;
+            text-align: center;
+            color: rgba(245, 245, 245, 0.6);
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--accent-teal);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 3%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem 3%;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .gallery-item-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        /* NAVBAR */
+nav{
+    width: 100%;
+    height: 90px;
+    padding: 0 7%;
+    background: #0f172a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* LOGO */
+.logo{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+/* NAV LINKS */
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+/* LINKS */
+nav a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+/* HOVER EFFECT */
+nav a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: #f59e0b;
+    transition: 0.3s ease;
+}
+
+nav a:hover{
+    color: #f59e0b;
+}
+
+nav a:hover::after{
+    width: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px){
+
+    nav{
+        flex-direction: column;
+        height: auto;
+        padding: 1rem 5%;
+        gap: 1rem;
+    }
+
+    .nav-links{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .logo{
+        font-size: 1.5rem;
+    }
+
+}
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <a href="index.html">index</a>
+            <a href="Projets.html">Projets</a>
+            <div class="logo">NEXUS</div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Connecting Global <span>Markets</span></h1>
+            <p>Solutions complètes d'import-export pour propulser votre commerce international</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">Demander un devis</button>
+                <button class="btn btn-secondary">En savoir plus</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2 class="section-title">À propos de nous</h2>
+        <p class="section-subtitle">25 ans d'expertise dans le commerce international</p>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Votre partenaire de confiance</h3>
+                <p>NEXUS Global Trade est un leader reconnu du secteur de l'import-export, offrant des solutions complètes et innovantes pour faciliter vos échanges commerciaux internationaux.</p>
+                <p>Avec une présence dans plus de 40 pays et une équipe de professionnels expérimentés, nous garantissons des services de dédouanement,
+                     logistique et conformité réglementaire de la plus haute qualité.</p>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">40+</div>
+                        <div class="stat-label">Pays couverts</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">500M+</div>
+                        <div class="stat-label">USD échangés</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">25K+</div>
+                        <div class="stat-label">Clients satisfaits</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Taux de satisfaction</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-globe"></i>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqPO_0K74qqyQU499MgLgJAY0raIoAowBFeQ&s" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <h2 class="section-title">Nos Services</h2>
+        <p class="section-subtitle">Une gamme complète pour tous vos besoins commerciaux</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-ship"></i>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZIzvzVZHPg2JnHBK_L0IQsMiEKO0640Rw3A&s" alt="" style="height: 100%; width: 100%; object-fit: cover;">
+                </div>
+                <h3>Import & Export</h3>
+                <p>Gestion complète des opérations d'importation et d'exportation de marchandises avec tracabilité totale.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-file-contract"></i>
+                    <img src="https://media.infopay.net/thumbnails/9jJH9jURHfaFnvdY6cKTqLhuBCHOlwF43B7ifrnZ.webp" alt="" style="height: 100%; width: 100%; object-fit: cover;">
+                </div>
+                <h3>Dédouanement</h3>
+                <p>Services de dédouanement rapides et fiables pour accélérer la circulation de vos marchandises.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-truck"></i>
+                <img src="https://blog.solistica.com/hubfs/Blog_internacional.jpg" alt="" style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+                <h3>Logistique Internationale</h3>
+                <p>Solutions de transport multimodal (maritime, aérien, routier) adaptées à vos besoins.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-box"></i>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0y0FwhGnBt37sptKoHiOFrrNg0kQweDI9wQ&s" alt="" style="height: 100%; width: 100%; object-fit: cover;">
+
+            </div>
+                <h3>Stockage & Entreposage</h3>
+                <p>Installations modernes avec contrôle climatique et système de gestion automatisé.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-headset"></i>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3pfkJujPz0237JuChmPSFvF75E8QSodAxQ&s" alt="" style="height: 100%; width: 100%; object-fit: cover;">
+                </div>
+                <h3>Conseil en Commerce Ext.</h3>
+                <p>Accompagnement personnalisé pour optimiser vos stratégies commerciales internationales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-certificate"></i>
+                    <img src="https://www.cynergytech.com/wp-content/uploads/2022/11/IT-Regulatory-Compliance-1.jpg" alt="" style="height: 100%; width: 100%; object-fit: cover;">
+                </div>
+                <h3>Conformité Réglementaire</h3>
+                <p>Gestion complète des licences, certifications et normes requises dans tous les marchés.</p>
+            </div>
+        </div>
+    </section>
+
+  <!-- GALLERY SECTION -->
+<section id="gallery">
+    <h2 class="section-title">Galerie</h2>
+    <p class="section-subtitle">Nos opérations et réalisations</p>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <div class="gallery-item-content">
+                <img src="https://media.licdn.com/dms/image/v2/C4D1BAQE8J5roYtkonw/company-background_10000/company-background_10000/0/1583271300331/fasfa_frozen_at_sea_fillet_association_cover?e=2147483647&v=beta&t=TMgXXnxoQs63JN0LTAboRBetc6EveZ5XiNJrt_zd1fU" 
+                     alt="Transport Maritime">
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-content">
+                <img src="https://www.portablespace.co.uk/wp-content/uploads/2018/08/620-sale-20ft-std-one-trip-ral5013-1.jpg" 
+                     alt="Container">
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-content">
+                <img src="https://sec-group.co.uk/wp-content/uploads/2020/10/red-warehouse.jpg" 
+                     alt="Entrepôt">
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-content">
+                <img src="https://images.contentstack.io/v3/assets/blte891c850d5781579/blt53faefb3dffea48c/6452c0632beffe356089eb86/why-is-it-called-a-semi-truck.jpg?auto=webp&w=1080&q=75" 
+                     alt="Camion Logistique">
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-content">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpDlgqi6zq6qm43859g-Fxd8UXSK4FUUQyXw&s" 
+                     alt="Transport Routier">
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-content">
+                <img src="https://img.magnific.com/free-photo/business-agreement-handshake-hand-gesture_53876-130006.jpg" 
+                     alt="Partenariat">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2 class="section-title">Contactez-nous</h2>
+        <p class="section-subtitle">Nous sommes là pour répondre à vos questions</p>
+
+        <div class="contact-container">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" placeholder="Moustapha Amadou Kallo">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="moustaphakallo547@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input type="text" id="subject" name="subject" placeholder="Sujet de votre message">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="bonjour, je voudrais avoir plus d'informations sur vos services."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>123 Rue du Commerce, 75008 Guinnee Conakry</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p>+224661615859</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>moustaphakallo547@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Horaires</h4>
+                        <p>Lun-Ven: 8h-18h | Sam: 9h-13h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 NEXUS Global Trade. Tous droits réservés.</p>
+        <div class="social-links">
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 1rem;">Développé avec excellence | Épreuve de sélection 2026</p>
+    </footer>
+
+</body>
+</html>   
+</body>
+</html>
